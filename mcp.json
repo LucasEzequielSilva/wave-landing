@@ -1,0 +1,24 @@
+{
+  "clients": [
+    {
+      "name": "shadcn",
+      "command": "npx shadcn-mcp",
+      "port": 3176
+    },
+    {
+      "name": "kbo-patterns",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "tweakcn",
+      "url": "https://mcp.tweakcn.com"
+    }
+  ],
+  "servers": [
+    {
+      "name": "shadcn-mcp",
+      "command": "npx shadcn-mcp",
+      "args": ["--port", "3176"]
+    }
+  ]
+}
