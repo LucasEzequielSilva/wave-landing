@@ -4,22 +4,22 @@ import Image from "next/image"
 
 const services = [
   {
+    icon: Palette,
+    title: "Brand Identity",
+    description: "Elevate your identity: sharp positioning, cohesive visuals, real impact.",
+    features: ["Art Direction", "Motion Identity", "Logo Design", "Color Systems"],
+  },
+  {
     icon: Monitor,
-    title: "Web & UI Design",
-    description: "Modern, conversion-focused interfaces for websites and apps.",
-    features: ["Landing pages", "SaaS dashboard", "Marketing site", "Website redesign"],
+    title: "Web & Mobile Design",
+    description: "Launch MVP in days; refresh or rebrand your UI; lift conversion rates.",
+    features: ["Landing pages", "Web apps", "Mobile apps", "E-commerce"],
   },
   {
     icon: Code,
     title: "Framer Development",
     description: "Perfect for portfolios, startups, and product launches.",
     features: ["Figma to Framer", "CMS setup", "Animation", "SEO optimization"],
-  },
-  {
-    icon: Palette,
-    title: "Brand Identity",
-    description: "Visual systems that make your brand memorable and cohesive.",
-    features: ["Logo design", "Color palette", "Guidelines", "Social branding"],
   },
   {
     icon: Megaphone,
@@ -40,12 +40,11 @@ export function Services() {
               <span>Services</span>
               <span>//</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">What's Included</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">How We Grow Your Business</h2>
           </div>
           <div className="max-w-md">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Get unlimited design work for a simple monthly rate. No hourly billing, no surprises — pause or cancel
-              whenever you need.
+              We combine strategy, speed, and skill to deliver exceptional design — every time.
             </p>
           </div>
         </div>

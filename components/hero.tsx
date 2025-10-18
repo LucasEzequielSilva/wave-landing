@@ -13,18 +13,18 @@ export function Hero() {
           {/* Left Content */}
           <div className="space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground text-background text-sm font-medium">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-foreground text-background text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-accent" />
               Available For Projects
             </div>
 
             {/* Heading */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
-              World-Class
+              <span className="text-foreground">World-Class</span>
               <br />
-              Design Partner
+              <span className="text-foreground">Design Partner</span>
               <br />
-              For AI Startups
+              <span className="text-muted-foreground">For AI Startups</span>
             </h1>
 
             {/* Subtitle */}
@@ -99,11 +99,9 @@ export function Hero() {
 
           {/* Right Animated Carousel Grid with Framer Motion */}
           <div className="relative overflow-hidden h-[600px] w-full">
-            {/* Gradient overlays for smooth transitions */}
-            <div className="absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 left-0 w-8 h-full bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-            <div className="absolute top-0 right-0 w-8 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+            {/* Gradient overlays for smooth transitions - only top and bottom */}
+            <div className="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
 
             {/* Column 1 - Moving Up */}
             <motion.div 
