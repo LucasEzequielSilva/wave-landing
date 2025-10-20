@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(head -n 1000 \"Formix — Design Subscription Landing Page (18_10_2025 13：48：14).html\")",
+      "Bash(cmd.exe /c start \"Formix — Design Subscription Landing Page (18_10_2025 13：48：14).html\")",
+      "Bash(ls -la public/*.{jpg,png,svg})",
+      "Bash(npm install @studio-freight/lenis)",
+      "Bash(npm install @studio-freight/lenis --legacy-peer-deps)",
+      "Bash(npm install lenis --legacy-peer-deps)",
+      "Bash(npm cache clean --force)",
+      "Bash(npm install lenis@latest)",
+      "Bash(npm install lenis@latest --legacy-peer-deps)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

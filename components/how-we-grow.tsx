@@ -35,7 +35,7 @@ export function HowWeGrow() {
       <div className="container mx-auto max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-16">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl font-extrabold tracking-tight uppercase">
               How We Grow Your Business
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">

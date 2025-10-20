@@ -3,6 +3,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* En tu global.css o archivo CSS principal */
+
+/* Smooth scroll para toda la página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Si querés agregar un delay/transición más customizada */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Para el cursor/pelotita que seguía el mouse, podés agregar: */
+body {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" fill="%23FF6B35" opacity="0.6"/></svg>'), auto;
+}
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

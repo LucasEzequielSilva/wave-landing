@@ -3,10 +3,104 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ═══════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM - GLOBAL STYLES
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════
+   SMOOTH SCROLL & FOCUS STATES
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* Consistent focus states with primary blue */
+*:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ocultar el cursor personalizado en móviles */
+@media (pointer: coarse) {
+  .cursor-follower {
+    display: none !important;
+  }
+}
+
+/* Estilo para la pelotita que sigue al cursor */
+.cursor-follower {
+  width: 20px;
+  height: 20px;
+  background-color: #FF4405; /* Formix orange */
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out;
+  mix-blend-mode: difference; /* Opcional: efecto de mezcla */
+  opacity: 0.6;
+}
 :root {
-  /* Updated theme for Formix design with orange accent */
+  /* ===== TYPOGRAPHY ===== */
+  --font-inter: var(--font-inter);
+
+  /* ===== COLOR TOKENS - WAVE STUDIO BLUE THEME ===== */
+  /* Base Colors */
   --background: oklch(0.98 0.002 85);
   --foreground: oklch(0.15 0.01 85);
+
+  /* Brand Colors - DUAL ACCENT SYSTEM */
+  /* Primary: Electric Blue for CTAs and interactive elements */
+  --primary: #2563EB;           /* Electric Blue - main CTAs, buttons, links */
+  --primary-hover: #1D4ED8;     /* Darker blue for hover states */
+  --brand-blue: #2563EB;
+  --brand-blue-hover: #1D4ED8;
+
+  /* Secondary: Orange for visual accents */
+  --secondary: #FF4405;         /* Orange - dots, badges, highlights */
+  --brand-orange: #FF4405;
+  --brand-orange-hover: #E63D04;
+
+  /* Navy: Dark blue for contrast sections */
+  --navy: #1E293B;              /* Dark Blue - dark backgrounds, footer */
+  --navy-light: #334155;        /* Lighter navy for hover states */
+
+  /* Usage Guide:
+     BLUE (70% of accents):
+     - Primary CTAs: bg-[#2563EB] hover:bg-[#2563EB]/90
+     - Links: text-[#2563EB] hover:text-[#2563EB]/80
+     - Active states: text-[#2563EB] or border-[#2563EB]
+     - Toggle switches: bg-[#2563EB]
+     - Section badges (option): bg-[#2563EB]
+     - Icon accents: text-[#2563EB]
+
+     ORANGE (30% of accents):
+     - Indicator dots: bg-[#FF4405]
+     - Star ratings: fill-[#FF4405]
+     - Small badges: bg-[#FF4405]
+     - Secondary highlights
+
+     NAVY:
+     - Dark sections: bg-[#1E293B]
+     - Footer: bg-[#1E293B]
+     - Contrast cards: bg-[#1E293B]
+  */
+
+  /* Neutral Grays */
+  --gray-50: rgb(249, 250, 251);
+  --gray-100: rgb(243, 244, 246);
+  --gray-200: rgb(229, 231, 235);
+  --gray-300: rgb(209, 213, 219);
+  --gray-400: rgb(156, 163, 175);
+  --gray-600: rgb(75, 85, 99);
+  --gray-700: rgb(55, 65, 81);
+  --gray-800: rgb(31, 41, 55);
+  --gray-900: rgb(17, 24, 39);
+
+  /* Semantic Colors */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0.01 85);
   --popover: oklch(1 0 0);
@@ -17,19 +111,56 @@
   --secondary-foreground: oklch(0.15 0.01 85);
   --muted: oklch(0.96 0.003 85);
   --muted-foreground: oklch(0.5 0.01 85);
-  --accent: oklch(0.62 0.22 35);
+  --accent: oklch(0.64 0.23 30);
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
   --border: oklch(0.92 0.005 85);
   --input: oklch(0.92 0.005 85);
-  --ring: oklch(0.62 0.22 35);
-  --chart-1: oklch(0.62 0.22 35);
+  --ring: oklch(0.64 0.23 30);
+
+  /* ===== BORDER RADIUS TOKENS ===== */
+  --radius-xs: 0.25rem;    /* 4px - small elements */
+  --radius-sm: 0.5rem;     /* 8px - buttons, inputs */
+  --radius-md: 0.75rem;    /* 12px - cards */
+  --radius-lg: 1rem;       /* 16px - large cards */
+  --radius-xl: 1.25rem;    /* 20px - sections */
+  --radius-2xl: 1.5rem;    /* 24px - major sections */
+  --radius-3xl: 2rem;      /* 32px - hero sections */
+  --radius-full: 9999px;   /* Full round - badges, avatars */
+  --radius: var(--radius-lg); /* Default radius */
+
+  /* ===== SHADOW TOKENS ===== */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* ===== SPACING TOKENS - CONSISTENT RHYTHM ===== */
+  --spacing-section: 5rem;      /* 80px - section vertical padding (py-20 md:py-32) */
+  --spacing-section-sm: 3.75rem; /* 60px - section padding mobile */
+  --spacing-card: 1.5rem;       /* 24px - card padding (p-6 md:p-8) */
+  --spacing-card-sm: 1rem;      /* 16px - card padding mobile */
+  --spacing-container: 2rem;    /* 32px - container horizontal padding (px-4 sm:px-6 lg:px-8) */
+  --spacing-gap: 1.5rem;        /* 24px - grid gap (gap-6) */
+  --spacing-gap-lg: 2rem;       /* 32px - large grid gap (gap-8) */
+  --spacing-gap-xl: 3rem;       /* 48px - section header gap (gap-12) */
+
+  /* Usage:
+     - All sections: py-20 md:py-32 px-4 sm:px-6 lg:px-8
+     - Section borders: border-b border-border
+     - Section headers: grid lg:grid-cols-2 gap-12 items-start mb-16
+     - Cards: gap-6 (benefits) or gap-8 (pricing)
+  */
+
+  /* Chart Colors */
+  --chart-1: oklch(0.64 0.23 30);
   --chart-2: oklch(0.5 0.15 85);
   --chart-3: oklch(0.4 0.1 200);
   --chart-4: oklch(0.7 0.18 120);
   --chart-5: oklch(0.6 0.2 280);
-  --radius: 1rem;
+
+  /* Sidebar */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -120,12 +251,161 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth !important;
+  }
+
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth !important;
   }
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   WAVE STUDIO ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Smooth animations for all transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom glow animation */
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
 @layer utilities {
+  /* ═══════════════════════════════════════════════════════════════════
+     CUSTOM UTILITY CLASSES
+     ═══════════════════════════════════════════════════════════════════ */
+
+  /* ===== WAVE STUDIO GRADIENT TEXT ===== */
+  .gradient-text-blue {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500;
+  }
+
+  .gradient-text-dark {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-600;
+  }
+
+  /* ===== TYPOGRAPHY SYSTEM - STRICT HIERARCHY ===== */
+  /*
+     H1 (Hero/Main): text-5xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight leading-[1.1]
+     H2 (Sections): text-4xl md:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight
+     H3 (Cards): text-2xl md:text-3xl font-bold
+     H4 (Small): text-xl md:text-2xl font-bold
+     Body Large: text-lg md:text-xl text-muted-foreground
+     Body Regular: text-base text-foreground
+     Body Small: text-sm font-medium text-muted-foreground
+     Labels: text-sm font-semibold
+  */
+
+  /* Brand Colors - Blue Primary */
+  .bg-brand-blue {
+    background-color: var(--brand-blue);
+  }
+  .bg-brand-blue-hover:hover {
+    background-color: var(--brand-blue-hover);
+  }
+  .text-brand-blue {
+    color: var(--brand-blue);
+  }
+
+  /* Brand Colors - Orange Secondary */
+  .bg-brand-orange {
+    background-color: var(--brand-orange);
+  }
+  .bg-brand-orange-hover:hover {
+    background-color: var(--brand-orange-hover);
+  }
+  .text-brand-orange {
+    color: var(--brand-orange);
+  }
+
+  /* Navy */
+  .bg-navy {
+    background-color: var(--navy);
+  }
+  .text-navy {
+    color: var(--navy);
+  }
+
+  /* Neutral Grays */
+  .bg-gray-50 { background-color: var(--gray-50); }
+  .bg-gray-100 { background-color: var(--gray-100); }
+  .bg-gray-200 { background-color: var(--gray-200); }
+  .bg-gray-300 { background-color: var(--gray-300); }
+  .bg-gray-400 { background-color: var(--gray-400); }
+  .bg-gray-600 { background-color: var(--gray-600); }
+  .bg-gray-700 { background-color: var(--gray-700); }
+  .bg-gray-800 { background-color: var(--gray-800); }
+  .bg-gray-900 { background-color: var(--gray-900); }
+
+  .text-gray-300 { color: var(--gray-300); }
+  .text-gray-400 { color: var(--gray-400); }
+  .text-gray-600 { color: var(--gray-600); }
+  .text-gray-700 { color: var(--gray-700); }
+  .text-gray-800 { color: var(--gray-800); }
+  .text-gray-900 { color: var(--gray-900); }
+
+  .border-gray-200 { border-color: var(--gray-200); }
+  .border-gray-300 { border-color: var(--gray-300); }
+  .border-gray-700 { border-color: var(--gray-700); }
+  .border-gray-800 { border-color: var(--gray-800); }
+
+  /* ===== BORDER RADIUS - CONSISTENT SHAPES ===== */
+  /*
+     Icon containers: rounded-xl (NOT rounded-full)
+     Cards: rounded-2xl or rounded-3xl
+     Badges: rounded-full
+     Buttons: rounded-full
+     Sections: rounded-2xl
+  */
+  .rounded-card { border-radius: var(--radius-md); }
+  .rounded-card-lg { border-radius: var(--radius-lg); }
+  .rounded-card-xl { border-radius: var(--radius-xl); }
+  .rounded-section { border-radius: var(--radius-2xl); }
+  .rounded-hero { border-radius: var(--radius-3xl); }
+
+  /* Shadows */
+  .shadow-card { box-shadow: var(--shadow-sm); }
+  .shadow-card-hover:hover { box-shadow: var(--shadow-md); }
+  .shadow-elevated { box-shadow: var(--shadow-lg); }
+
+  /* Spacing */
+  .section-padding {
+    padding-top: var(--spacing-section);
+    padding-bottom: var(--spacing-section);
+  }
+  @media (max-width: 768px) {
+    .section-padding {
+      padding-top: var(--spacing-section-sm);
+      padding-bottom: var(--spacing-section-sm);
+    }
+  }
+
+  .card-padding {
+    padding: var(--spacing-card);
+  }
+  @media (max-width: 768px) {
+    .card-padding {
+      padding: var(--spacing-card-sm);
+    }
+  }
+
   /* Smooth transitions for carousel */
   .carousel-gradient {
     background: linear-gradient(
